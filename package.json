@@ -11,7 +11,7 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "mocha test.js"
+		"test": "mocha test/test.js"
 	},
 	"keywords": [
 		"word",
