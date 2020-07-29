@@ -1,6 +1,6 @@
 {
 	"name": "word-pictionary-list",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "List of English words that can be used in word game like pictionary.",
 	"license": "MIT",
 	"repository": "engichang1467/word-pictionary-list",
@@ -11,16 +11,8 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava && tsd",
-		"build": "node fetch-words.js",
-		"prepublishOnly": "npm run build",
-		"pretest": "npm run build"
+		"test": "mocha test.js"
 	},
-	"files": [
-		"index.js",
-		"index.d.ts",
-		"words.txt"
-	],
 	"keywords": [
 		"word",
 		"words",
@@ -32,12 +24,7 @@
 		"dictionary",
 		"pictionary"
 	],
-	"devDependencies": {
-		"ava": "^2.1.0",
-		"badwords-list": "^1.0.0",
-		"got": "^9.6.0",
-		"leo-profanity": "^1.2.5",
-		"tsd": "^0.7.3",
-		"xo": "^0.24.0"
+	"dependencies": {
+		"mocha": "^8.0.1"
 	}
 }

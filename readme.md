@@ -8,22 +8,49 @@ Used by [`sketchy`](https://github.com/engichang1467/Sketchy)
 
 One-letter words are not included. Many common bad words are also filtered out.
 
+Cryptographic-quality randomness is NOT the goal, as speed matters for generating sample text and security does not. `Math.random()` is used.
 
-## Install
-
+Installation:
 ```
-$ npm install word-pictionary-list
+    npm install word-pictionary-list
 ```
 
+Examples:
+```
+    var randomPictionaryWords = require('word-pictionary-list');
 
-## Usage
+    console.log(randomPictionaryWords());
+    'ceiling'
 
-```js
-const fs = require('fs');
+    console.log(randomPictionaryWords(5));
+    [ 'Night', 'chestnut', 'brain', 'Igloo', 'Glasses', 'Teapot', 'Teapot', 'Train', 'Lollipop', 'pole zoo sushi' ]
 
-// Returns the path to the word list which is separated by `\n`
-const wordListPath = require('word-pictionary-list');
+    console.log(randomPictionaryWords({ min: 3, max: 10 }));
+    [ 'cardboard', 'half cardboard' ]
 
-const wordArray = fs.readFileSync(wordListPath, 'utf8').split('\n');
-//=> […, 'abmhos', 'abnegate', …]
+    console.log(randomPictionaryWords({ exactly: 2 }));
+    ['beside', 'between']
+
+    console.log(randomPictionaryWords({ exactly: 5, join: ' ' }))
+    'beggar boring Deep Popsicle Deep'
+    
+    console.log(randomPictionaryWords({ exactly: 5, join: '' }))
+    'KiwiSand castleLoveafraidPacifier'
+
+    console.log(randomPictionaryWords({exactly: 5, maxLength: 4}))
+    [ 'Rug', 'Text', 'Nose', 'Crib', 'Egg' ]
+
+    console.log(randomPictionaryWords({exactly:5, wordsPerString:2}))
+    [ 'Mom Teacher', 'bubble Megaphone', 'Tourist afraid', 'Pirate Sun', 'computer monitor Rug' ]
+
+    console.log(randomPictionaryWords({exactly:5, wordsPerString:2, separator:'-'}))
+    [ 'Hug-blinds', 'computer monitor-Cake', 'comfy-Baseball', 'pole zoo sushi-Black Panther', 'laugh-Love' ]
+
+    console.log(randomPictionaryWords({exactly:5, wordsPerString:2, formatter: (word)=> word.toUpperCase()}))
+    [ 'MUSIC SPITBALL', 'PEANUT NURSE', 'BURP RUN', 'BIRD CHANNEL', 'BRAND PAIL BASEBALL' ]
+
+    console.log(randomPictionaryWords({exactly:5, wordsPerString:2, formatter: (word, index)=> {
+        return index === 0 ? word.slice(0,1).toUpperCase().concat(word.slice(1)) : word;
+    }}))
+    [ 'Pinwheel Egg', 'Honk Lighthouse', 'Cliff Game', 'Back seat sandbox', 'Mount Rushmore Buckle' ]
 ```
