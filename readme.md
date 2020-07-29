@@ -23,10 +23,10 @@ Examples:
     'ceiling'
 
     console.log(randomPictionaryWords(5));
-    [ 'Night', 'chestnut', 'brain', 'Igloo', 'Glasses', 'Teapot', 'Teapot', 'Train', 'Lollipop', 'pole zoo sushi' ]
+    [ 'baby-sitter', 'Cake', 'curtain', 'Bonnet', 'Pose' ]
 
     console.log(randomPictionaryWords({ min: 3, max: 10 }));
-    [ 'cardboard', 'half cardboard' ]
+    [ 'Strawberry', 'Duck', 'Mailman', 'Teacher' ]
 
     console.log(randomPictionaryWords({ exactly: 2 }));
     ['beside', 'between']
